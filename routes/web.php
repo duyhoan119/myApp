@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\userController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('user',[userController::class,'index']);
+Route::get('/register',function(){
+    return view('login');
+});
+Route::post('/register-success',function(Request $request){
+    $data = $request->all();
+    // dd($data);
+    return view('index', ['data'=>$data]);
+})->name('success');

@@ -20,6 +20,16 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->unsignedBigInteger('room_id');
+            // $table->foreign('room_id')->references('id')->on('rooms');
+            //lieen keets khoas ngoai
+            $table->string('username');
+            $table->timestamp('birthday')->nullable();
+            $table->string('phone');
+            $table->unsignedInteger('role');
+            $table->unsignedInteger('status');
+
             $table->timestamps();
         });
     }

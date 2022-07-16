@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\productController;
 use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,16 +17,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('users')->name('users.')->group(function(){
+    Route::get('/',[userController::class,'index'])->name('list');
+    Route::get('/add/{user?}',[userController::class,'Form'])->name('add');
+    Route::post('/store/{id?}',[userController::class,'store'])->name('store');
+    Route::delete('/delete/{id}',[userController::class,'delete'])->name('delete');
 });
-Route::get('user',[userController::class,'index']);
-Route::get('/register',function(){
-    return view('login');
-});
-Route::post('/register-success',function(Request $request){
-    $data = $request->all();
-    // dd($data);
-    return view('index', ['data'=>$data]);
-})->name('success');

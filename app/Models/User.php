@@ -22,6 +22,7 @@ class User extends Authenticatable
         'id',
         'room_id',
         'name',
+        'avatar',
         'username',
         'email',
         'password',

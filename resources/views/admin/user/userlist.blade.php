@@ -7,6 +7,7 @@
             <tr>
                 <th>ID</th>
                 <th>NAME</th>
+                <th>AVATAR</th>
                 <th>NGAỲ SINH</th>
                 <th>MÃ NHÂN VIÊN</th>
                 <th>EMAIL</th>
@@ -15,8 +16,9 @@
         <tbody>
             @foreach ($users as $item)
                 <tr>
-                    <td>{{ $item->name }}</td>
                     <td>{{ $item->id }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td><img style="width:100px" src="{{asset($item->avatar)}}" alt=""></td>
                     <td>{{ $item->birthday }}</td>
                     {{-- <td>{{$item['']}}</td> --}}
                     <td>{{ $item->email }}</td>

@@ -27,7 +27,7 @@ class userController extends Controller
         }
         return view('admin.user.Form', ['rooms' => $rooms]);
     }
-    public function store(UserRequest $request, User $id = null)
+    public function store(Request $request, User $id = null)
     {
         $data = $request->except('_token');
         if ($request->hasFile('avatar')) {
@@ -41,16 +41,12 @@ class userController extends Controller
         } else {
             $data['avatar'] = '';
         }
+        $data['role'] = 1;
+        $data['status'] = 1;
         if ($id) {
-
-            $data['role'] = 1;
-            $data['status'] = 1;
             $id->update($data);
             return redirect()->route('users.list');
         }
-        $data['role'] = 1;
-        $data['status'] = 1;
-
         User::create($data);
         return redirect()->route('users.list');
     }

@@ -27,6 +27,8 @@ class UserRequest extends FormRequest
             'name'=> 'required|min:8',
             'username'=>'required|min:8',
             'email'=>'required|email',
+            'brithday'=>'date',
+            'avatar'=>'file',
             'password'=>'required|min:6',
             'password_confirm'=>'required_with:password|same:password|min:6',
             'phone'=>'required|min:10|max:10',
@@ -41,7 +43,9 @@ class UserRequest extends FormRequest
             'username.min'=>'name min 8',
             'email.required'=>'enter your email',
             'email.required'=>'email min 8',
-            'phone.required'=>'enter your phone'
+            'phone.required'=>'enter your phone',
+            'birthday.date'=>'enter your brithday',
+            'avatar.file'=>'upload your avatar',
         ];
     }
 }

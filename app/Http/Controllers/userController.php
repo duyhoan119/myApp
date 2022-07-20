@@ -27,7 +27,7 @@ class userController extends Controller
         }
         return view('admin.user.Form', ['rooms' => $rooms]);
     }
-    public function store(Request $request, User $id = null)
+    public function store(UserRequest $request, User $id = null)
     {
         $data = $request->except('_token');
         if ($request->hasFile('avatar')) {
@@ -44,6 +44,7 @@ class userController extends Controller
         $data['role'] = 1;
         $data['status'] = 1;
         if ($id) {
+            Storage::delete($id->avatar);
             $id->update($data);
             return redirect()->route('users.list');
         }

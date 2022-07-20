@@ -17,7 +17,7 @@
         </ul>
 
     <li class="nav-item">
-        <a href="/register" class="nav-link">
+        <a href="{{route('rooms.list')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Room</p>
         </a>
@@ -29,7 +29,7 @@
         </ul>
     </li>
     <li class="nav-item">
-        <a href="{{route('position.')}}" class="nav-link">
+        <a href="{{route('position.list')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Position</p>
         </a>
